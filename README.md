@@ -1,6 +1,8 @@
 # griddle
 A grid based pattern drawing helper using http://github.com/llgcode/draw2d/draw2dimg
 
+![Top Example Image](https://raw.githubusercontent.com/elkelk/griddle/master/examples/hello-top.png)
+
 ## Usage
 Import giddle, image, and draw2dimg
 ```go
