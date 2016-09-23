@@ -22,13 +22,15 @@ func (c Canvas) Fill(gc *draw2dimg.GraphicContext, fill color.RGBA) {
 	gc.Fill()
 }
 
-func (c Canvas) DrawGrid(gc *draw2dimg.GraphicContext, box float64, element Element) {
+func (c Canvas) DrawGrid(gc *draw2dimg.GraphicContext, element Element, box, variance float64) {
 	gridCoords := c.GenerateGrid(0, box)
 
 	for i := 0; i < len(gridCoords); i++ {
 		gridCoord := gridCoords[i]
-		variance := box
-		varyCoord := gridCoord.withVariance(variance)
+		varyCoord := gridCoord
+		if variance > 0 {
+			varyCoord = gridCoord.withVariance(variance)
+		}
 		element(gc, varyCoord, box)
 	}
 }
